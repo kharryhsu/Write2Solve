@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw
 import random
 from tensorflow.keras.models import load_model
 
-model = load_model('cnn_model.keras')
+model = load_model('model.keras')
 
 class DrawingCanvas:
     def __init__(self, root):

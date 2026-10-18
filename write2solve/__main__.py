@@ -1,8 +1,11 @@
+from pathlib import Path
 import pygame
 import numpy as np
-import equation_generation
 import time
 from tensorflow.keras.models import load_model
+from . import equation_generation
+
+MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "digit_cnn.keras"
 
 def predict_digit():
     image = pygame.surfarray.array3d(canvas)
@@ -14,7 +17,7 @@ def predict_digit():
     
     return np.argmax(prediction)
 
-model = load_model('model.keras')
+model = load_model(MODEL_PATH)
 
 WIDTH, HEIGHT = 800, 800
 
